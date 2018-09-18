@@ -1,5 +1,7 @@
 # college-algebra
 
+Portfolio to show up some resolved algebra problems, for the course of College Algebra
+
 ## Project setup
 ```
 npm install
