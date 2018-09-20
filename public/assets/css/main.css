@@ -2037,7 +2037,7 @@ input, select, textarea {
 		color: #fff;
 		height: 100%;
 		left: 0;
-		overflow-y: auto;
+		overflow-y: hidden;
 		position: fixed;
 		text-align: right;
 		top: 0;
@@ -2136,7 +2136,7 @@ input, select, textarea {
 				#nav ul li a span {
 					position: relative;
 					display: block;
-					font-size: 0.8em;
+					font-size: 16px;
 				}
 
 					#nav ul li a span:before {
@@ -2408,10 +2408,7 @@ input, select, textarea {
 				-webkit-backface-visibility: hidden;
 				-ms-backface-visibility: hidden;
 				backface-visibility: hidden;
-				-moz-transform: translateX(-275px);
-				-webkit-transform: translateX(-275px);
-				-ms-transform: translateX(-275px);
-				transform: translateX(-275px);
+				left: -275px;
 				-moz-transition: -moz-transform 0.5s ease;
 				-webkit-transition: -webkit-transform 0.5s ease;
 				-ms-transition: -ms-transform 0.5s ease;
@@ -2419,7 +2416,6 @@ input, select, textarea {
 				-webkit-overflow-scrolling: touch;
 				display: block;
 				height: 100%;
-				left: 0;
 				overflow-y: auto;
 				position: fixed;
 				top: 0;
@@ -2610,10 +2606,62 @@ input, select, textarea {
 
 	}
 
-.navbar-link li {
-	font-size: 16px;
+html, body {
+	height: 100%;
 }
 
-.navbar-link ul {
+#app {
+	height: 100%;
+}
+
+#main, #top {
+	height: 100%;
+}
+
+.navbar-link li {
+	font-size: 14px;
+}
+
+#exercisesList {
 	display: none;
+	font-size: 14px;
+}
+
+#exercisesList > li {
+	padding-right: 15px;
+	cursor: pointer;
+}
+
+.math-holder {
+	padding: 20px 20px 0px 20px;
+}
+
+#header {
+	overflow: hidden;	
+}
+
+.showNav{
+	animation: showNavAnim 0.5s forwards;
+}
+
+.hideNav {
+	animation: hideNavAnim 0.5s forwards;
+}
+
+.e {
+	display: none;
+}
+
+.math-holder {
+	height: 100%;
+}
+
+@keyframes showNavAnim {
+	from { left: -275px }
+	to { left: 0px }
+}
+
+@keyframes hideNavAnim {
+	from { left: 0px }
+	to { left: -275px }
 }

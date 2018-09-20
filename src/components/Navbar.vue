@@ -12,15 +12,15 @@
                 <ul>
                     <li><router-link to="/" id="top-link" class="navbar-link"><span class="link icon fa-home">Inicio</span></router-link></li>
                     <li>
-                        <router-link to="/portafolio" id="portfolio-link" class="navbar-link"><span class="link icon fa-th">Portafolio</span>
-                            <ul id="portfolioList" class="drop-list">
-                                <li>Ejercicio 1</li>
-                                <li>Ejercicio 2</li>
-                                <li>Ejercicio 3</li>
-                                <li>Ejercicio 4</li>
-                                <li>Ejercicio 5</li>
-                            </ul>
+                        <router-link @click.native="toggleExercises()" to="/portafolio" id="portfolio-link" class="navbar-link"><span class="link icon fa-th">Portafolio</span>
                         </router-link>
+                        <ul id="exercisesList" class="drop-list">
+                                <li @click="showE(1)">Ejercicio 1</li>
+                                <li @click="showE(2)">Ejercicio 2</li>
+                                <li @click="showE(3)">Ejercicio 3</li>
+                                <li @click="showE(4)">Ejercicio 4</li>
+                                <li @click="showE(5)">Ejercicio 5</li>
+                        </ul>
                     </li>
                     <li><router-link to="/about" id="about-link" class="navbar-link"><span class="icon fa-user">El Equipo</span></router-link></li>
                 </ul>
@@ -41,12 +41,24 @@
 <script>
 export default {
     name: 'Navbar',
+    mounted(){
+        this.exercisesList = $('#exercisesList');
+    },
+    methods: {
+        toggleExercises() {
+            this.exercisesList.slideToggle();
+        },
+        showE(e){
+            $('.e').hide();
+            $('#e' + e).show();
+        }
+    },
     watch: {
         $route(to, from){
-            $('.drop-list').slideUp();
-            if(to.name === 'portfolio'){
-                $('#portfolioList').slideDown();
-            }
+            if(to.name === 'portfolio')
+                this.exercisesList.slideDown();
+            else
+                this.exercisesList.slideUp();
         }
     }
 }

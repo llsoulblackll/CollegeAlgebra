@@ -391,8 +391,7 @@
 					else
 						x.hide();
 
-					i
-						.on('blur', function(event) {
+					i.on('blur', function(event) {
 
 							event.preventDefault();
 
@@ -407,8 +406,7 @@
 
 						});
 
-					x
-						.on('focus', function(event) {
+					x.on('focus', function(event) {
 
 							event.preventDefault();
 
@@ -431,8 +429,7 @@
 				});
 
 		// Events.
-			$this
-				.on('submit', function() {
+			$this.on('submit', function() {
 
 					$this.find('input[type=text],input[type=password],textarea')
 						.each(function(event) {
