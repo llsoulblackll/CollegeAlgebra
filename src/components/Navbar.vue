@@ -15,11 +15,11 @@
                         <router-link @click.native="toggleExercises()" to="/portafolio" id="portfolio-link" class="navbar-link"><span class="link icon fa-th">Portafolio</span>
                         </router-link>
                         <ul id="exercisesList" class="drop-list">
-                                <li @click="showE(1)">Ejercicio 1</li>
-                                <li @click="showE(2)">Ejercicio 2</li>
-                                <li @click="showE(3)">Ejercicio 3</li>
-                                <li @click="showE(4)">Ejercicio 4</li>
-                                <li @click="showE(5)">Ejercicio 5</li>
+                                <li @click="showE(1, $event)">Ejercicio 1</li>
+                                <li @click="showE(2, $event)">Ejercicio 2</li>
+                                <li @click="showE(3, $event)">Ejercicio 3</li>
+                                <li @click="showE(4, $event)">Ejercicio 4</li>
+                                <li @click="showE(5, $event)">Ejercicio 5</li>
                         </ul>
                     </li>
                     <li><router-link to="/about" id="about-link" class="navbar-link"><span class="icon fa-user">El Equipo</span></router-link></li>
@@ -43,14 +43,17 @@ export default {
     name: 'Navbar',
     mounted(){
         this.exercisesList = $('#exercisesList');
+        $('#exercisesList > li:first').addClass('active');
     },
     methods: {
         toggleExercises() {
             this.exercisesList.slideToggle();
         },
-        showE(e){
-            $('.e').hide();
+        showE(e, event){
+            $('.e').hide()
+            $('#exercisesList > li').removeClass('active');
             $('#e' + e).show();
+            $(event.target).addClass('active');
         }
     },
     watch: {

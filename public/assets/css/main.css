@@ -2136,7 +2136,7 @@ input, select, textarea {
 				#nav ul li a span {
 					position: relative;
 					display: block;
-					font-size: 16px;
+					font-size: 18px;
 				}
 
 					#nav ul li a span:before {
@@ -2373,7 +2373,7 @@ input, select, textarea {
 		/* Basic */
 
 			html, body {
-				overflow-x: hidden;
+				overflow-y: hidden;
 			}
 
 			body, input, textarea, select {
@@ -2608,32 +2608,54 @@ input, select, textarea {
 
 html, body {
 	height: 100%;
+	overflow-y: hidden;
 }
 
 #app {
 	height: 100%;
 }
 
-#main, #top {
-	height: 100%;
+#exercisesList {
+	background: rgba(0, 0, 0, 0.15);
 }
 
-.navbar-link li {
-	font-size: 14px;
+#main, #top {
+	height: 100%;
+	overflow: auto;
 }
 
 #exercisesList {
 	display: none;
-	font-size: 14px;
+	
+}
+
+#exercisesList li {
+	font-size: 16px;
 }
 
 #exercisesList > li {
-	padding-right: 15px;
+	padding-right: 25px;
 	cursor: pointer;
 }
 
+#exercisesList > li.active {
+	background-color: #151617;	
+}
+
 .math-holder {
-	padding: 20px 20px 0px 20px;
+	padding: 40px 20px 60px 20px;
+	margin-bottom: 200px;
+}
+
+.math-holder b {
+	font-weight: bold;
+	display: block;
+	padding-bottom: 20px;
+	padding-left: 20px;
+}
+
+.math-holder .math-header {
+	padding-left: 100px;
 }
 
 #header {
@@ -2650,10 +2672,6 @@ html, body {
 
 .e {
 	display: none;
-}
-
-.math-holder {
-	height: 100%;
 }
 
 @keyframes showNavAnim {
